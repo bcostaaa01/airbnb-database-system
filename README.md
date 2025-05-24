@@ -30,6 +30,33 @@ Run the `/add_data.sql` file to insert data to all the tables.
 SELECT FROM "Listing";
 ```
 
+#### Getting a specific listing
+
+Get a specific listing, and data about the guest name, wishlist, and room type.
+
+```sql
+SELECT 
+    u.name as guest_name,
+    u.user_id as guest_id,
+    w.name as wishlist_name,
+    l.title as listing_title,
+    rt.name as room_type,
+    p.price_per_night
+FROM "User" u
+JOIN "Wishlist" w ON u.user_id = w.guest_id
+JOIN "WishlistItem" wi ON w.wishlist_id = wi.wishlist_id
+JOIN "Listing" l ON wi.listing_id = l.listing_id
+JOIN "ListingRoomType" lrt ON l.listing_id = lrt.listing_id
+JOIN "RoomType" rt ON lrt.room_type_id = rt.room_type_id
+JOIN "Pricing" p ON l.listing_id = p.listing_id
+WHERE u.user_type = 'guest'
+LIMIT 1;
+```
+
+Result set:
+
+<img src="./assets/user_listing_example.png" />
+
 #### Getting all bookings
 
 ```sql
