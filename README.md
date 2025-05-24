@@ -1,6 +1,10 @@
 ### Airbnb Database System
 
-This project was built to fulfill a use case to provide a database system for Airbnb, add some data to it, and then be able to interact with the data based on different business cases.
+This project was built to fulfill a use case to provide a database system for Airbnb, add some data to it, and then be able to interact with the data based on different business cases. The system uses **PostgreSQL**.
+
+### The ER Diagram
+
+<img src="./assets/erdiagram.png" />
 
 ### Setting up the environment
 
