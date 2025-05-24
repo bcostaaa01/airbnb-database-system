@@ -43,3 +43,6 @@ SELECT FROM "Review";
 ```sql
 SELECT FROM "SupportTicket";
 ```
+### Notes
+
+Using `OFFSET` when inserting data to tables with relations to other tables was necessary due to the fact that UUIDs are being used in the `INSERT` statements, so it would not be possible to guess the UUID values, as that is also going against the principle of UUIDs not being predicatble.
